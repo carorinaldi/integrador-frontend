@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Guardar Producto</h2>
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" [(ngModel)]="producto.nombre">
+    </div>
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio</label>
+      <input type="text" class="form-control" name="precio" [(ngModel)]="producto.precio">
+    </div>
+    <div class="mb-3">
+      <label for="imagen" class="form-label">Imagen</label>
+      <input type="text" class="form-control" name="imagen" [(ngModel)]="producto.imagen">
+    </div>
+    <div class="mb-3">
+      <label for="stock" class="form-label">Stock</label>
+      <input type="text" class="form-control" name="stock" [(ngModel)]="producto.stock">
+    </div>
+    <div class="mb-3 ">
+      <label for="proveedor" class="col-form-label" col-sm-2>Proveedor</label>
+        <select [(ngModel)]="producto.proveedor" class= "form-control" name="proveedor">
+          <option [ngValue]="undefined">--- Seleccionar un proveedor ---</option>
+          <option *ngFor="let proveedor of proveedores" [ngValue]="proveedor">{{proveedor.razonSocial}}</option>
+        </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary mb-3" (click)="crearProducto()" *ngIf="!producto.id">Guardar</button>
+    <button type="submit" class="btn btn-primary mb-3" (click)="actualizarProducto()"*ngIf="producto.id">Guardar</button>
+  </form>
+</div>
+
